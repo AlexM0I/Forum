@@ -19,7 +19,7 @@ public class ForumServiceImpl implements ForumService {
 
 	@Override
 	public PostDto addPost(String author, AddPostDto addPostDto) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
