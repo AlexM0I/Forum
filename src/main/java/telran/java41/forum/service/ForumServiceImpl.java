@@ -5,20 +5,28 @@ import java.util.List;
 import java.util.Set;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import telran.java41.forum.dao.ForumRepository;
+import telran.java41.forum.dao.PostRepository;
 import telran.java41.forum.dto.AddPostDto;
 import telran.java41.forum.dto.PostDto;
 
 @Service
 public class ForumServiceImpl implements ForumService {
-	
-	ForumRepository forumRepository;
+
+	PostRepository postRepository;
 	ModelMapper modelMapper;
+
+	@Autowired
+	public ForumServiceImpl(PostRepository postRepository, ModelMapper modelMapper) {
+		this.postRepository = postRepository;
+		this.modelMapper = modelMapper;
+	}
 
 	@Override
 	public PostDto addPost(String author, AddPostDto addPostDto) {
+
 		
 		return null;
 	}

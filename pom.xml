@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>telran.java41</groupId>
-	<artifactId>HWT-60-for-CWT-22-03-15-forum-web-service</artifactId>
+	<artifactId>CWT-61-for-CWT-22-03-18-forum-web-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>forum-web-servie</name>
 	<description>Spring Boot forum web servie</description>

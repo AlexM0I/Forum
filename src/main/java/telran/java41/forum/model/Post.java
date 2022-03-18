@@ -1,20 +1,19 @@
 package telran.java41.forum.model;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import telran.java41.forum.dto.CommentDto;
 
-@NoArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
+@Document(collection = "posts")
 public class Post {
 	String id;
 	@Setter
@@ -23,26 +22,41 @@ public class Post {
 	String content;
 	@Setter
 	String author;
-	@Setter
-	int likes = 0;
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	int likes;
 	LocalDateTime dateCreated;
-	Set<String> tags = new HashSet<>();
-	Set<CommentDto> comments = new HashSet<>();
+	Set<String> tags;
+	List<Comment> comments;
 
-	public Post(String id, String title, String content, String author) {
-		this.id = id;
+	public Post() {
+		dateCreated = LocalDateTime.now();
+		comments = new ArrayList<>();
+	}
+	
+	public Post(String title, String content, String author, Set<String> tags) {
+		this();
 		this.title = title;
 		this.content = content;
 		this.author = author;
-		this.dateCreated = LocalDateTime.now();
-	}
-
-	public boolean addComment(CommentDto comment) {
-		return comments.add(comment);
+		this.tags = tags;
 	}
 
 	public boolean addTag(String tag) {
 		return tags.add(tag);
+	}
+	
+	public boolean removeTag(String tag) {
+		return tags.remove(tag);
+	}
+
+	public void addLike() {
+		likes++;
+	}
+	
+	public boolean addComment(Comment comment) {
+		return comments.add(comment);
+	}
+	
+	public boolean removComment(Comment comment) {
+		return comments.remove(comment);
 	}
 }
