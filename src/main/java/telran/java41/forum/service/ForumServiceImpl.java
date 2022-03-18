@@ -26,7 +26,7 @@ public class ForumServiceImpl implements ForumService {
 
 	@Override
 	public PostDto addPost(String author, AddPostDto addPostDto) {
-
+		// wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 		
 		return null;
 	}
